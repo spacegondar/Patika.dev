@@ -1,6 +1,6 @@
 # Patika.dev.sql
 
-## Ödev 1
+## <span style="color:red">Ödev 1<span>
 
 #### 1.Film tablosunda bulunan title ve description sütunlarındaki verileri sıralayınız.
 ```
