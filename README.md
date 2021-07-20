@@ -1,5 +1,7 @@
 # Patika.dev.sql
 
+### Ödev 1
+
 --1. Soru
 SELECT title, description
 FROM film;
