@@ -76,6 +76,7 @@ SELECT country
 FROM country
 WHERE country LIKE 'A%a';
 ```
+
 #### 2.Country tablosunda bulunan country sütunundaki ülke isimlerinden en az 6 karakterden oluşan ve sonu 'n' karakteri ile sonlananları sıralayınız.
 ```
 --3.2 Soru
@@ -83,6 +84,7 @@ SELECT country
 FROM country
 WHERE country LIKE '%_____n';
 ```
+
 #### 3.Film tablosunda bulunan title sütunundaki film isimlerinden en az 4 adet büyük ya da küçük harf farketmesizin 'T' karakteri içeren
 ```
 --3.3 Soru
@@ -90,6 +92,7 @@ SELECT  title
 FROM film
 WHERE title ILIKE '%T%T%T%T%';
 ```
+
 #### 4.Film tablosunda bulunan tüm sütunlardaki verilerden title 'C' karakteri ile başlayan ve uzunluğu (length) 90 dan büyük olan ve rental_rate 2.99 olan verileri sıralayınız.
 ```
 --3.4 Soru
@@ -97,5 +100,51 @@ SELECT *
 FROM film
 WHERE title ILIKE 'C%' AND length > 90 AND rental_rate = 2.99;
 ```
+
+## Ödev 4
+
+#### 1.Film tablosunda bulunan replacement_cost sütununda bulunan birbirinden farklı değerleri sıralayınız.
+```
+--4.1 Soru
+SELECT DISTINCT(replacement_cost)
+FROM film
+ORDER BY replacement_cost ASC;
+```
+
+#### 2.Film tablosunda bulunan replacement_cost sütununda birbirinden farklı kaç tane veri vardır?
+```
+--4.2 Soru
+SELECT COUNT(DISTINCT(replacement_cost))
+FROM film;
+```
+
+#### 3.Film tablosunda bulunan film isimlerinde (title) kaç tanesini T karakteri ile başlar ve aynı zamanda rating 'G' ye eşittir?
+```
+--4.3 Soru
+SELECT COUNT(title)
+FROM film
+WHERE title ILIKE 'T%' AND rating = 'G';
+```
+
+#### 4.Country tablosunda bulunan ülke isimlerinden (country) kaç tanesi 5 karakterden oluşmaktadır?
+```
+--4.4 Soru
+SELECT COUNT(*)
+FROM country 
+WHERE country ILIKE '_____';
+```
+
+#### 5.City tablosundaki şehir isimlerinin kaçtanesi 'R' veya r karakteri ile biter?
+```
+--4.5 Soru
+SELECT COUNT(*)
+FROM city
+WHERE city ILIKE '%r';
+```
+
+
+
+
+
 
 
