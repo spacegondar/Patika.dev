@@ -247,3 +247,94 @@ GROUP BY country_id
 ORDER BY COUNT(*) DESC
 LIMIT 1;
 ```
+
+## Ödev 8
+
+#### 1.Test veritabanınızda employee isimli sütun bilgileri id(INTEGER), name VARCHAR(50), birthday DATE, email VARCHAR(100) olan bir tablo oluşturalım.
+```
+--8.1 Soru
+CREATE TABLE employee(
+	id INTEGER,
+	name VARCHAR(50),
+	birthday DATE,
+	email VARCHAR(100)
+);
+```
+
+#### 2.Oluşturduğumuz employee tablosuna 'Mockaroo' servisini kullanarak 50 adet veri ekleyelim.
+```
+--8.2 Soru(İlk 4 satır)
+insert into employee (id, name, email, birthday) values (1, 'Miran Cana', null, '1971-01-29');
+insert into employee (id, name, email, birthday) values (2, 'Coleen Cortese', 'ccortese1@nbcnews.com', '1974-05-07');
+insert into employee (id, name, email, birthday) values (3, 'Rafaela Littlejohns', 'rlittlejohns2@ucsd.edu', '1974-07-18');
+insert into employee (id, name, email, birthday) values (4, 'Barbee Mauchlen', 'bmauchlen3@cafepress.com', '1953-10-08');
+
+```
+
+#### 3.Sütunların her birine göre diğer sütunları güncelleyecek 5 adet UPDATE işlemi yapalım.
+
+```
+--8.3 Soru
+UPDATE employee                                                       
+SET name = 'Ece Tekir',
+	email = 'ece@tekir.com',
+	birthday = '1999-05-04'
+Where id = 3
+RETURNING *;
+
+UPDATE employee
+SET name = 'Taner British',
+	id = '101',
+	email = 'taner@biritish.com'
+WHERE birthday = '1968-08-29'
+RETURNING *;
+
+UPDATE employee
+SET id = 51,
+	birthday = '1992-10-08',
+	email = 'hal@pirolini.com'
+WHERE name = 'Hal Pirolini'
+RETURNING *;
+
+UPDATE employee
+SET id = 52,
+	name = 'Ayşe Golden',
+	birthday = '1970-11-11'
+WHERE email = 'ahansmanr@nature.com'
+RETURNING *;
+
+UPDATE employee
+SET name = 'Ozan Matbazel',
+	birthday = '2002-05-12',
+	email = 'ozan@matbazel.com'
+WHERE id = 38
+RETURNING *;
+```
+
+#### 4.Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
+```
+--8.4 Soru
+DELETE FROM employee
+WHERE id = 29
+RETURNING *;
+
+DELETE FROM employee
+WHERE name = 'Tremayne Creane'
+RETURNING *;
+
+DELETE FROM employee
+WHERE birthday = '1971-09-05'
+RETURNING *;
+
+DELETE FROM employee
+WHERE email = 'vtheobold1c@hp.com'
+RETURNING *;
+
+DELETE FROM employee
+WHERE id = 26
+RETURNING *;
+```
+
+
+
+
