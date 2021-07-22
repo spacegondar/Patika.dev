@@ -353,7 +353,6 @@ INNER JOIN customer AS t2
 ON t1.customer_id = t2.customer_id;
 ```
 
-
 #### 3.Customer tablosu ile rental tablosunda bulunan rental_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz INNER JOIN sorgusunu yazınız.
 ```
 SELECT t1.first_name, t1.last_name, t2.rental_id
@@ -361,5 +360,32 @@ FROM customer AS t1
 INNER JOIN rental AS t2
 ON t1.customer_id = t2.customer_id;
 ```
+
+## Ödev 10
+
+#### 1.City tablosu ile country tablosunda bulunan şehir (city) ve ülke (country) isimlerini birlikte görebileceğimiz LEFT JOIN sorgusunu yazınız.
+```
+SELECT t1.country, t2.city
+FROM country AS t1
+LEFT JOIN city AS t2
+ON t1.country_id = t2.country_id
+```
+
+#### 2.customer tablosu ile payment tablosunda bulunan payment_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz RIGHT JOIN sorgusunu yazınız.
+```
+SELECT t1.first_name , t1.last_name, t2.payment_id
+FROM customer AS t1
+RIGHT JOIN payment AS t2
+ON t1.customer_id = t2.customer_id;
+```
+
+#### 3.Customer tablosu ile rental tablosunda bulunan rental_id ile customer tablosundaki first_name ve last_name isimlerini birlikte görebileceğimiz FULL JOIN sorgusunu yazınız.
+```
+SELECT t1.first_name , t1.last_name, t2.rental_id
+FROM customer AS t1
+FULL JOIN rental AS t2
+ON t1.customer_id = t2.customer_id;
+```
+
 
 
